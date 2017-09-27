@@ -1,0 +1,3 @@
+# Backup and update Ark. Backups run hourly, updates attempt every 4 hours
+0 */1 * * * root /home/steam/ark/backup_ark.sh
+0 */4 * * * root /home/steam/ark/update_ark.sh
