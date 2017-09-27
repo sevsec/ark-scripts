@@ -7,7 +7,7 @@ ARKDIR=/home/steam/ark/
 LOGFILE=/var/log/ark_update.log
 STEAMLOGFILE=/var/log/ark_update_steam.log
 
-if ! [[ "$IP" =~ /([0-9]{1,3}\.){3}[0-9]{1,3}/ ]]; then
+if ! [[ "$IP" =~ ([0-9]{1,3}\.){3}[0-9]{1,3} ]]; then
   echo "$(date +%m-%d-%Y) $(date +%H:%M:%S) Could not grab local IP address, exiting ..."
   exit -1
 fi
