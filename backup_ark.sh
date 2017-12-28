@@ -5,9 +5,13 @@ DAYS=7
 LOGFILE=/var/log/ark_backup.log
 BACKUPDIR=/var/backup
 TEMPDIR=/var/tmp
-ARKDIR=/home/steam/ark
+ARKDIR=/home/steam/arkstuffsteam
 FILENAME="ark-backup-$(date +%m-%d-%y_%H-%M-%S).tar.bz2"
-OLDFILE="ark-backup-$(date -d "$DAYS days ago" +%m-%d-%y)*.tar.bz2"
+OLDFILE="ark-backup-$(date -d "$DAYS days ago" +%m-%d-%y)*"
+
+if [ ! -d "$BACKUPDIR" ]; then
+  mkdir "$BACKUPDIR"
+fi
 
 echo "[$(date +%s)] Backup started: $FILENAME" >> "$LOGFILE"
 
@@ -35,7 +39,7 @@ exit 0
 # The following does a quick copy to S3. Remove the exit above to use.
 pushd "$BACKUPDIR"
 TODAYSFILES=$(sed 's/.\{17\}$//' <<< $FILENAME)
-BUCKET=CHANGEME
+BUCKET=arklife
 
 if [ $(($(ls "$BACKUPDIR/$TODAYSFILES*" | wc -l) % 12)) -eq 0 ]; then
   echo "[$(date +%s)] s3 upload of $FILENAME started"
