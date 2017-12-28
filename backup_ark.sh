@@ -7,7 +7,7 @@ BACKUPDIR=/var/backup
 TEMPDIR=/var/tmp
 ARKDIR=/home/steam/arkstuffsteam
 FILENAME="ark-backup-$(date +%m-%d-%y_%H-%M-%S).tar.bz2"
-OLDFILE="ark-backup-$(date -d "$DAYS days ago" +%m-%d-%y)*"
+OLDFILE="ark-backup-$(date -d "$DAYS days ago" +%m-%d-%y)"
 
 if [ ! -d "$BACKUPDIR" ]; then
   mkdir "$BACKUPDIR"
@@ -30,7 +30,7 @@ else
 fi
 
 rm -rf "$TEMPDIR/Saved"
-rm "$OLDFILE"
+rm "$OLDFILE"*.tar.bz
 echo "[$(date +%s)] Old files removed." >> "$LOGFILE"
 
 # Comment if you want to skip S3-based backup
