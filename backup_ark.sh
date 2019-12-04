@@ -5,7 +5,7 @@ DAYS=7
 LOGFILE=/var/log/ark_backup.log
 BACKUPDIR=/var/backup
 TEMPDIR=/var/tmp
-ARKDIR=/home/steam/arkstuffsteam
+ARKDIR=/home/steam/ark
 FILENAME="ark-backup-$(date +%m-%d-%y_%H-%M-%S).tar.bz2"
 OLDFILE="ark-backup-$(date -d "$DAYS days ago" +%m-%d-%y)"
 
