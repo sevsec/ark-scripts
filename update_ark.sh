@@ -3,7 +3,7 @@
 INTERFACE=eth0
 IP=$(ifconfig $INTERFACE | grep -oP "inet addr:(\d{1,3}\.){3}\d" | grep -oP "(\d{1,3}\.){3}\d")
 STEAMDIR=/home/steam
-ARKDIR=/home/steam/arkstuffsteam/
+ARKDIR=/home/steam/ark/
 LOGFILE=/var/log/ark_update.log
 STEAMLOGFILE=/var/log/ark_update_steam.log
 
